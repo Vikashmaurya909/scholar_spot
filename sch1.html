@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scholarship Scheme</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI,sans-serif;
+  color:white;
+  background:
+    linear-gradient(rgba(11,43,60,.85),rgba(28,76,102,.9)),
+    url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f");
+  background-size:cover;
+  background-attachment:fixed;
+}
+
+/* ===== HEADER ===== */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(6px);
+}
+.logo{font-size:22px;font-weight:600}
+.nav{display:flex;gap:25px}
+.nav a{
+  color:white;
+  text-decoration:none;
+  position:relative;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:2px;
+  background:#ff5b5b;
+  left:0;
+  bottom:-4px;
+  transition:.3s;
+}
+.nav a:hover::after{width:100%}
+
+/* ===== PROFILE DROPDOWN ===== */
+.profile-wrapper{position:relative}
+.profile{
+  background:#1b1f26;
+  padding:8px 14px;
+  border-radius:25px;
+  cursor:pointer;
+}
+.profile:hover{background:#232933}
+
+.profile-menu{
+  position:absolute;
+  right:0;
+  top:48px;
+  background:#1b1f26;
+  border-radius:10px;
+  width:140px;
+  display:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.profile-menu div{
+  padding:12px;
+  cursor:pointer;
+}
+.profile-menu div:hover{background:#232933}
+
+/* ===== CONTENT ===== */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  padding:40px 0;
+}
+h1{font-size:40px;margin-bottom:25px}
+
+/* ===== CARDS ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.card{
+  background:rgba(15,20,26,.92);
+  border-radius:15px;
+  padding:20px;
+}
+.card h3{color:#ffb3b3;margin-top:0}
+.deadline{margin:10px 0;color:#ffdcdc;font-size:14px}
+
+.remind{
+  background:#ff5b5b;
+  border:none;
+  padding:10px 14px;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+.remind:hover{opacity:.9}
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 HEADER -->
+<div class="header">
+  <div class="logo">🎓 Scholar's Spot</div>
+
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="sch.html">Scholarship</a>
+    <a href="sch1.html">Scheme</a>
+    <a href="#">About</a>
+  </div>
+
+  <div class="profile-wrapper">
+    <div class="profile" onclick="toggleProfile()">👤 Profile</div>
+    <div class="profile-menu" id="profileMenu">
+      <div onclick="logout()">🚪 Logout</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BODY ===== -->
+<div class="container">
+<h1> Schemes</h1>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Government Research Adhichatra</h3>
+    <p>Support for meritorious students.</p>
+    <div class="deadline">⏰ Deadline: 31 March 2026</div>
+    <button class="remind" onclick="remind(this)">Remind Me</button>
+  </div>
+
+  <div class="card">
+    <h3>Post Matric Scheme (SC)</h3>
+    <p>Financial assistance for SC students.</p>
+    <div class="deadline">⏰ Deadline: 15 April 2026</div>
+    <button class="remind" onclick="remind(this)">Remind Me</button>
+  </div>
+
+  <div class="card">
+    <h3>VJNT  Scheme</h3>
+    <p>Education support for VJNT category.</p>
+    <div class="deadline">⏰ Deadline: 10 April 2026</div>
+    <button class="remind" onclick="remind(this)">Remind Me</button>
+  </div>
+
+  <div class="card">
+    <h3>Minority Merit Scheme</h3>
+    <p>Merit-based scholarship for minorities.</p>
+    <div class="deadline">⏰ Deadline: 20 March 2026</div>
+    <button class="remind" onclick="remind(this)">Remind Me</button>
+  </div>
+
+  <div class="card">
+    <h3>Education Fee Reimbursement</h3>
+    <p>Tuition fee reimbursement scheme.</p>
+    <div class="deadline">⏰ Deadline: 5 April 2026</div>
+    <button class="remind" onclick="remind(this)">Remind Me</button>
+  </div>
+
+</div>
+</div>
+
+<script>
+function toggleProfile(){
+  const m=document.getElementById("profileMenu");
+  m.style.display = m.style.display==="block" ? "none" : "block";
+}
+
+function logout(){
+  alert("Logged out successfully 👋");
+  document.getElementById("profileMenu").style.display="none";
+}
+
+function remind(btn){
+  btn.innerText="✔ Reminder Set";
+  btn.style.background="#2ecc71";
+}
+</script>
+
+</body>
+</html>
